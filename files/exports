@@ -1,0 +1,3 @@
+{% for export in salt['pillar.get']('nfs:server:exports') %}
+{{ export[0] }} {{ export[1] }}
+{% %}
