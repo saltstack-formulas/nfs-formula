@@ -1,11 +1,13 @@
 {% set map = {
     'Ubuntu': {
         'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
-        'pkgs_client': ['nfs-common']
+        'pkgs_client': ['nfs-common'],
+        'service_name': 'nfs-kernel-server'
     },
     'Debian': {
         'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
-        'pkgs_client': ['nfs-common']
+        'pkgs_client': ['nfs-common'],
+        'service_name': 'nfs-kernel-server'
     }
 } %}
 

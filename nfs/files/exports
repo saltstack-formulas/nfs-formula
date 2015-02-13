@@ -1,0 +1,3 @@
+{% for dir, opts in salt['pillar.get']('nfs:server:exports').items() -%}
+{{ dir }} {{ opts }}
+{% endfor -%}
