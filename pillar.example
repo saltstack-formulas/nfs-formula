@@ -7,4 +7,6 @@ nfs:
       mountpoint: "/some/path"
       location: "hostname:/path"
       opts: "vers=3,rsize=65535,wsize=65535"
+      persist: True
+      mkmnt: True
 
