@@ -2,3 +2,11 @@ nfs:
   server:
     exports: 
       /srv/homes: "hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)"
+  mount:
+    somename:
+      mountpoint: "/some/path"
+      location: "hostname:/path"
+      opts: "vers=3,rsize=65535,wsize=65535"
+      persist: True
+      mkmnt: True
+
