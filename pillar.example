@@ -9,4 +9,9 @@ nfs:
       opts: "vers=3,rsize=65535,wsize=65535"
       persist: True
       mkmnt: True
+  unmount:
+    someothername:
+      mountpoint: "/some/other/path"
+      location: "hostname:/other/path"
+      persist: False
 

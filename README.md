@@ -16,3 +16,21 @@ Install nfs server components
 ---------------
 
 Install nfs client components
+
+``nfs.mount``
+---------------
+
+Mount nfs shares via. pillar using the following parameters:
+* mountpoint
+* location
+* opts: default => "vers=3"
+* persist: default => True
+* mkmnt: default => True
+
+``nfs.unmount``
+---------------
+
+Unmount nfs shares via. pillar using the following parameters:
+* mountpoint
+* location
+* persist: default => False
