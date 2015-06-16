@@ -1,3 +1,8 @@
+########################################################################
+# File managed by Salt at <{{ source }}>.
+# Your changes will be overwritten.
+########################################################################
+#
 {% for dir, opts in salt['pillar.get']('nfs:server:exports').items() -%}
 {{ dir }} {{ opts }}
 {% endfor -%}
