@@ -1,6 +1,6 @@
 nfs:
   lookup:
-    export_template: salt:/nfs/files/customexport
+    export_template: salt://nfs/files/customexport
   server:
     exports: 
       /srv/homes: "hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)"
