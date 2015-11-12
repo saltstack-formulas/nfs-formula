@@ -13,8 +13,9 @@
     }
 } %}
 
-{% if grains.get('saltversion', '').startswith('0.17') %}
-{% set nfs = salt['grains.filter_by'](map, merge=salt['pillar.get']('nfs:lookup'), base='default') %}
-{% else %}
+# is support for <0.17 still required?
+{% if grains.get('saltversioninfo:0', '0') == 0 and grains.get('saltversioninfo:1', '16') < 17  %}
 {% set nfs = map.get(grains.os) %}
+{% else %}
+{% set nfs = salt['grains.filter_by'](map, merge=salt['pillar.get']('nfs:lookup')) %}
 {% endif %}
