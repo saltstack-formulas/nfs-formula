@@ -21,3 +21,13 @@ nfs-service:
     - names: {{ nfs.service_name }}
 {% endif %}
     - enable: True
+
+{% if grains.get('os') == 'FreeBSD' %}
+  {% set mountd_flags = salt['pillar.get'](
+        'nfs:server:mountd_flags', None) -%}
+  {% if mountd_flags %}
+mountd_flags:
+  sysrc.managed:
+    - value: {{ mountd_flags }}
+  {% endif %}
+{% endif %}
