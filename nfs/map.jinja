@@ -8,7 +8,12 @@
         'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
         'pkgs_client': ['nfs-common'],
         'service_name': 'nfs-kernel-server'
-    }
+    },
+    'FreeBSD': {
+        'pkgs_server': None,
+        'pkgs_client': None,
+        'service_name': ['nfsd', 'mountd']
+    },
 } %}
 
 {% if grains.get('saltversion', '').startswith('0.17') %}
