@@ -16,6 +16,12 @@ that differ from whats in defaults.yaml
             'service_name': ['nfsd', 'mountd'],
             'mount_opts': '-T,-R=1',
         },
+        'FreeBSD': {
+            'mount_opts': None,
+            'pkgs_server': None,
+            'pkgs_client': None,
+            'service_name': ['nfsd', 'mountd'],
+        },
   }
   , grain="os_family"
   , merge=salt['pillar.get']('nfs:lookup'))
