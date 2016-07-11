@@ -1,0 +1,14 @@
+nfs:
+    opts: default => "vers=3"
+    persist: default => True
+    mkmnt: default => True
+    persist_mount: default => False
+    persist_unmount: default => False
+    # Taken from map.jinja, should work
+    # for most Linux distributions:
+    pkgs_server:
+        - nfs-common
+        - nfs-kernel-server
+    pkgs_client:
+        - nfs-common
+    service_name: nfs-kernel-server
