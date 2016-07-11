@@ -22,6 +22,11 @@ that differ from whats in defaults.yaml
             'pkgs_client': None,
             'service_name': ['nfsd', 'mountd'],
         },
+        'RedHat': {
+            'pkgs_server': ['nfs-utils'],
+            'pkgs_client': ['nfs-utils'],
+            'service_name': 'nfs-server'
+        }
   }
   , grain="os_family"
   , merge=salt['pillar.get']('nfs:lookup'))
