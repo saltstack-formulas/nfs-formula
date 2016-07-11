@@ -10,6 +10,12 @@ that differ from whats in defaults.yaml
 ##}
 {% set os_family_map = salt['grains.filter_by']({
         'Debian': {},
+        'OpenBSD': {
+            'pkgs_server': None,
+            'pkgs_client': None,
+            'service_name': ['nfsd', 'mountd'],
+            'mount_opts': None,
+        },
   }
   , grain="os_family"
   , merge=salt['pillar.get']('nfs:lookup'))
