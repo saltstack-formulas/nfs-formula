@@ -9,8 +9,8 @@ include:
     - device: {{ m[1].location }}
     - fstype: nfs
   {# Not every platform needs options #}
-  {% if nfs.mount_opts %}
-    - opts: {{ nfs.mount_opts }}
+  {% if 'opts' in m[1] or nfs.mount_opts %}
+    - opts: {{ m[1].opts|default(nfs.mount_opts) }}
   {% endif %}
     - persist: {{ m[1].persist|default(nfs.persist_mount) }}
     - mkmnt: {{ m[1].mkmnt|default(nfs.mkmnt) }}
