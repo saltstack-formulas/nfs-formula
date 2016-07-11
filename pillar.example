@@ -1,4 +1,9 @@
 nfs:
+  # Global settings:
+  mkmnt: False
+  mount_opts: noauto,ro
+  persist_unmount: True
+  persist_mount: False
   server:
     exports: 
       /srv/homes: "hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)"
