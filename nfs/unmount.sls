@@ -19,5 +19,5 @@ include:
   {% if use_device %}
     - device: {{ m[1].location }}
   {% endif %}
-    - persist: {{ m[1].persist|default('False') }}
+    - persist: {{ m[1].persist|default(nfs.persist_unmount) }}
 {% endfor %}
