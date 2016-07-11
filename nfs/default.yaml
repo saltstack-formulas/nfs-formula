@@ -3,6 +3,7 @@ nfs:
     mkmnt: True
     persist_mount: True
     persist_unmount: False
+    export_template: 'salt://nfs/files/exports'
     # Taken from old map.jinja, should work
     # for most Linux distributions:
     pkgs_server:

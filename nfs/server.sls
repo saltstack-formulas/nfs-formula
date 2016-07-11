@@ -6,7 +6,7 @@ nfs-server-deps:
 
 /etc/exports:
   file.managed:
-    - source: salt://nfs/files/exports
+    - source: {{ nfs.export_template }}
     - template: jinja
     - watch_in:
       - service: nfs-service
