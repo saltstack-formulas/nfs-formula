@@ -1,4 +1,9 @@
 {% set map = {
+    'SUSE': {
+        'pkgs_server': ['nfs-kernel-server'],
+        'pkgs_client': ['nfs-client'],
+        'service_name': 'nfsserver'
+    },
     'Ubuntu': {
         'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
         'pkgs_client': ['nfs-common'],
