@@ -3,7 +3,7 @@
 include:
   - nfs.client
 
-{% for m in salt['pillar.get']('nfs:mount').items() %}
+{% for m in salt['pillar.get']('nfs:mount', {}).items() %}
 {{ m[1].mountpoint }}:
   mount.mounted:
     - device: {{ m[1].location }}
