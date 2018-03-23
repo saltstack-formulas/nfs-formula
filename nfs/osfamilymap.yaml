@@ -26,7 +26,7 @@ RedHat:
   pkgs_client: ['nfs-utils']
   service_name: 'nfs-server'
 
-SUSE:
+Suse:
   pkgs_server: ['nfs-kernel-server']
   pkgs_client: ['nfs-client']
   service_name: 'nfsserver'

@@ -6,8 +6,9 @@ nfs-server-deps:
         - pkgs: {{ nfs.pkgs_server|json }}
 {% endif %}          
 
-/etc/exports:
+nfs-exports-configure:
   file.managed:
+    - name: {{ nfs.exports_file }}
     - source: {{ nfs.export_template }}
     - template: jinja
     - watch_in:
