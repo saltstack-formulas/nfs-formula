@@ -1,5 +1,7 @@
 {% from "nfs/map.jinja" import nfs with context %}
 
-nfs-client-deps:
+{% if nfs.pkgs_client %}
+nfs-client:
     pkg.installed:
         - pkgs: {{ nfs.pkgs_client|json }}
+{% endif %}          
