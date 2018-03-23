@@ -1,43 +1,42 @@
-{% set map = {
-    'Amazon': {
-        'pkgs_server': ['nfs-utils'],
-        'pkgs_client': ['nfs-utils'],
-        'service_name': 'nfs'
-    },
-    'CentOS': {
-        'pkgs_server': ['nfs-utils'],
-        'pkgs_client': ['nfs-utils'],
-        'service_name': 'nfs'
-    },
-    'RedHat': {
-        'pkgs_server': ['nfs-utils'],
-        'pkgs_client': ['nfs-utils'],
-        'service_name': 'nfs'
-    },
-    'SUSE': {
-        'pkgs_server': ['nfs-kernel-server'],
-        'pkgs_client': ['nfs-client'],
-        'service_name': 'nfsserver'
-    },
-    'Ubuntu': {
-        'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
-        'pkgs_client': ['nfs-common'],
-        'service_name': 'nfs-kernel-server'
-    },
-    'Debian': {
-        'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
-        'pkgs_client': ['nfs-common'],
-        'service_name': 'nfs-kernel-server'
-    },
-    'Raspbian': {
-        'pkgs_server': ['nfs-common', 'nfs-kernel-server'],
-        'pkgs_client': ['nfs-common'],
-        'service_name': 'nfs-kernel-server'
-    }
-} %}
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
 
-{% if grains.get('saltversion', '').startswith('0.17') %}
-{% set nfs = salt['grains.filter_by'](map, merge=salt['pillar.get']('nfs:lookup'), base='default') %}
-{% else %}
-{% set nfs = map.get(grains.os) %}
-{% endif %}
+{## Start with  defaults from defaults.yaml ##}
+{% import_yaml 'nfs/defaults.yaml' as defaultmap %}
+{% import_yaml 'nfs/osfamilymap.yaml' as osfamilymap %}
+{% import_yaml 'nfs/osmap.yaml' as osmap %}
+
+# Defaults.
+{% set defaults = salt['grains.filter_by'](
+    defaultmap,
+    base='Defaults',
+) %}
+
+# Update defaults with grains vars.
+{% set vars_map = [
+    ("os_family", osfamilymap),
+    ("os", osmap)
+] %}
+
+{% for map_name, map_value in vars_map %}
+    {% do salt['defaults.merge'](defaults,
+        salt['grains.filter_by'](
+            map_value,
+            grain=map_name,
+        ) | default({}, True)
+    ) %}
+{% endfor %}
+
+# Update lookup vars.
+{% do salt['defaults.merge'](defaults, {
+    'nfs': salt['pillar.get']('nfs:lookup')
+}) %}
+
+
+# Final var merged with pillar.
+{% set nfs = salt['pillar.get'](
+    'nfs',
+    default=defaults,
+    merge=True,
+) %}
+
