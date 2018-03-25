@@ -2,41 +2,21 @@
 # vim: ft=jinja
 
 {## Start with  defaults from defaults.yaml ##}
-{% import_yaml 'nfs/defaults.yaml' as defaultmap %}
+{% import_yaml 'nfs/defaults.yaml' as defaults %}
 {% import_yaml 'nfs/osfamilymap.yaml' as osfamilymap %}
 {% import_yaml 'nfs/osmap.yaml' as osmap %}
 
-# Defaults.
-{% set defaults = salt['grains.filter_by'](
-    defaultmap,
-    base='Defaults',
-) %}
-
-# Update defaults with grains vars.
-{% set vars_map = [
-    ("os_family", osfamilymap),
-    ("os", osmap)
-] %}
-
-{% for map_name, map_value in vars_map %}
-    {% do salt['defaults.merge'](defaults,
-        salt['grains.filter_by'](
-            map_value,
-            grain=map_name,
-        ) | default({}, True)
-    ) %}
-{% endfor %}
-
-# Update lookup vars.
-{% do salt['defaults.merge'](defaults, {
-    'nfs': salt['pillar.get']('nfs:lookup')
-}) %}
-
-
-# Final var merged with pillar.
-{% set nfs = salt['pillar.get'](
-    'nfs',
-    default=defaults,
-    merge=True,
-) %}
+{% set nfs = salt['grains.filter_by'](
+    defaults,
+    merge = salt['grains.filter_by'](
+        osfamilymap,
+        grain='os_family',
+        merge = salt['grains.filter_by'](
+            osmap,
+            grain='os',
+            merge = salt['pillar.get']('nfs', {}),
+        ),
+    ),
+    base='nfs')
+%}
 
