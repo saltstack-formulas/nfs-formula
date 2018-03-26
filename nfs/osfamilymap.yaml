@@ -2,7 +2,7 @@
 Debian:
   pkgs_server: ['nfs-common', 'nfs-kernel-server']
   pkgs_client: ['nfs-utils']
-  service_name: 'nfs'
+  service_name: 'nfs-server'
 
 Arch:
   pkgs_server: ['nfs-utils']
