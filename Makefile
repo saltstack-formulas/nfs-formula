@@ -37,12 +37,9 @@ setup:
 
 clean:
 	find . -name '*.pyc' -exec rm '{}' ';'
-	rm -rf Dockerfile.*
-	# delete pytest caches...
-	# rm -rf tests/pytests/*/.pytest_cache
-	# rm -rf tests/pytests/*/__pycache__
-	rm -rf tests/pytests/apply-all-tests/.pytest_cache
-	rm -rf tests/pytests/apply-all-tests/__pycache__
+	find . -name '__pycache__' -type d -prune -exec rm -rf '{}' '+'
+	find . -name '.pytest_cache' -type d -prune -exec rm -rf '{}' '+'
+	rm -rf tests/Dockerfile*
 
 # --- centos_master_2017.7.2 ------------------------------------
 test-centos_master_2017.7.2: clean
