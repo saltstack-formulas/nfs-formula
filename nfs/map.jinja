@@ -5,6 +5,7 @@
 {% import_yaml 'nfs/defaults.yaml' as defaults %}
 {% import_yaml 'nfs/osfamilymap.yaml' as osfamilymap %}
 {% import_yaml 'nfs/osmap.yaml' as osmap %}
+{% import_yaml 'nfs/osfingermap.yaml' as osfingermap %}
 
 {% set nfs = salt['grains.filter_by'](
     defaults,
@@ -14,7 +15,10 @@
         merge = salt['grains.filter_by'](
             osmap,
             grain='os',
-            merge = salt['pillar.get']('nfs', {}),
+            merge = salt['grains.filter_by'](
+                osfingermap,
+                merge = salt['pillar.get']('nfs', {}),
+            ),
         ),
     ),
     base='nfs')
