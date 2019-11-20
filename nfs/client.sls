@@ -4,4 +4,4 @@
 nfs-client:
     pkg.installed:
         - pkgs: {{ nfs.pkgs_client|json }}
-{% endif %}          
+{% endif %}

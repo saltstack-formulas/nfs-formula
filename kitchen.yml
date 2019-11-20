@@ -177,8 +177,6 @@ verifier:
 
 suites:
   - name: default
-    excludes:
-      - centos-6-2017-7-py2
     provisioner:
       state_top:
         base:

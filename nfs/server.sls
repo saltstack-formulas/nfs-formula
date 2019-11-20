@@ -4,7 +4,7 @@
 nfs-server-deps:
     pkg.installed:
         - pkgs: {{ nfs.pkgs_server|json }}
-{% endif %}          
+{% endif %}
 
 nfs-exports-configure:
   file.managed:
@@ -16,11 +16,11 @@ nfs-exports-configure:
 
 nfs-service:
   service.running:
-{% if nfs.service_name is string %}  
+{% if nfs.service_name is string %}
     - name: {{ nfs.service_name }}
-{% elif nfs.service_name is iterable %}      
+{% elif nfs.service_name is iterable %}
     - names: {{ nfs.service_name }}
-{% endif %}      
+{% endif %}
     - enable: True
 
 {% if grains.get('os') == 'FreeBSD' %}

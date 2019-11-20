@@ -11,7 +11,7 @@ include:
 {# Not every platform needs options #}
 {% if 'opts' in m[1] or nfs.mount_opts %}
     - opts: {{ m[1].opts|default(nfs.mount_opts) }}
-{% endif %}      
+{% endif %}
     - persist: {{ m[1].persist|default(nfs.persist_mount) }}
     - mkmnt: {{ m[1].mkmnt|default(nfs.mkmnt) }}
 {% endfor %}
