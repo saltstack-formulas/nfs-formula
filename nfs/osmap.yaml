@@ -2,4 +2,4 @@
 Fedora:
   pkgs_server: ['nfs-utils']
   pkgs_client: ['nfs-utils']
-  service_name: 'nfs'
+  service_name: ['rpcbind', 'nfs-server']

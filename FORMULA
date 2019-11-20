@@ -1,0 +1,9 @@
+name: nfs
+os: Debian, Ubuntu, Raspbian, RedHat, Fedora, CentOS, Suse, openSUSE
+os_family: Debian, RedHat, Suse, Gentoo
+version: 0.1
+release: 1
+minimum_version: 2017.7
+summary: nfs formula
+description: Formula to install and configure nfs server or client
+top_level_dir: nfs

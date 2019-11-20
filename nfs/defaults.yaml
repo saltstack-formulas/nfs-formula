@@ -1,8 +1,9 @@
+---
 nfs:
-  mount_opts: None 
-  mkmnt: True
-  persist_mount: True
-  persist_unmount: False
+  mount_opts: None
+  mkmnt: true
+  persist_mount: true
+  persist_unmount: false
   exports_file: '/etc/exports'
   export_template: 'salt://nfs/files/exports'
   # for most Linux distributions:

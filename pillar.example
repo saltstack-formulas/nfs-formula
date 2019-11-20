@@ -1,14 +1,17 @@
+---
 nfs:
   # Global settings:
-  mkmnt: False
+  mkmnt: false
   mount_opts: noauto,ro
-  persist_unmount: True
-  persist_mount: False
-  
+  persist_unmount: true
+  persist_mount: false
+
   # Server settings
   server:
-    exports: 
-      /srv/homes: "hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)"
+    exports:
+      /srv/homes: >-
+        hostname1(rw,sync,no_subtree_check)
+        hostname2(ro,sync,no_subtree_check)
     # FreeBSD specific:
     mountd_flags: -l -S
 
@@ -18,11 +21,10 @@ nfs:
       mountpoint: "/some/path"
       location: "hostname:/path"
       opts: "vers=3,rsize=65535,wsize=65535"
-      persist: True
-      mkmnt: True
+      persist: true
+      mkmnt: true
   unmount:
     someothername:
       mountpoint: "/some/other/path"
       location: "hostname:/other/path"
-      persist: False
-
+      persist: false
