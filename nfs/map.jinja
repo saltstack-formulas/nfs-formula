@@ -17,6 +17,7 @@
             grain='os',
             merge = salt['grains.filter_by'](
                 osfingermap,
+                grain='osfinger',
                 merge = salt['pillar.get']('nfs', {}),
             ),
         ),
