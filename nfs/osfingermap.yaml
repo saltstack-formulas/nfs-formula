@@ -1,3 +1,6 @@
 ---
 Debian-8:
   service_name: 'nfs-kernel-server'
+
+CentOS-6:
+  service_name: 'nfs'
