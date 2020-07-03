@@ -10,14 +10,14 @@ Arch:
   service_name: 'nfs-server'
 
 OpenBSD:
-  pkgs_server: None
-  pkgs_client: None
+  pkgs_server: null
+  pkgs_client: null
   service_name: ['nfsd', 'mountd']
   mount_opts: '-T,-R=1'
 
 FreeBSD:
-  pkgs_server: None
-  pkgs_client: None
+  pkgs_server: null
+  pkgs_client: null
   service_name: ['nfsd', 'mountd']
   mount_opts: 'tcp,retrycnt=1'
 
