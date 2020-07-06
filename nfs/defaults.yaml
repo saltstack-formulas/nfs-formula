@@ -1,6 +1,6 @@
 ---
 nfs:
-  mount_opts: None
+  mount_opts: null
   mkmnt: true
   persist_mount: true
   persist_unmount: false
