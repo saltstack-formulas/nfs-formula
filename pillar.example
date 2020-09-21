@@ -5,6 +5,7 @@ nfs:
   mount_opts: noauto,ro
   persist_unmount: true
   persist_mount: false
+  enabled: true
 
   # Server settings
   server:
