@@ -1,0 +1,3 @@
+---
+openSUSE Tumbleweed:
+  service_name: 'nfs-server'
