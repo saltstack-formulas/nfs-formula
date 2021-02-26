@@ -30,3 +30,8 @@ Suse:
   pkgs_server: ['nfs-kernel-server']
   pkgs_client: ['nfs-client']
   service_name: 'nfsserver'
+
+Gentoo:
+  pkgs_server: ['net-fs/nfs-utils']
+  pkgs_client: ['net-fs/nfs-utils']
+  service_name: {{ 'nfs-server' if grains.init == 'systemd' else 'nfs' }}
