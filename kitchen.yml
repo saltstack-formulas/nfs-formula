@@ -312,6 +312,7 @@ suites:
       state_top:
         base:
           '*':
+            - nfs._mapdata
             - nfs.server
       pillars:
         top.sls:
