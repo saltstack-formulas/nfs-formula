@@ -1,5 +1,38 @@
 # Changelog
 
+# [0.12.0](https://github.com/saltstack-formulas/nfs-formula/compare/v0.11.1...v0.12.0) (2021-04-03)
+
+
+### Code Refactoring
+
+* **service:** split out nfs service handling into dedicated state ([ad8d4b8](https://github.com/saltstack-formulas/nfs-formula/commit/ad8d4b89dc1f20d8bb02abcfbd2e98e2d0395317))
+
+
+### Continuous Integration
+
+* **commitlint:** ensure `upstream/master` uses main repo URL [skip ci] ([3d81fea](https://github.com/saltstack-formulas/nfs-formula/commit/3d81feaab31734c149c50d59b2a057e62e8463af))
+* **gemfile+lock:** use `ssf` customised `kitchen-docker` repo [skip ci] ([be724ae](https://github.com/saltstack-formulas/nfs-formula/commit/be724aed004193eb45a0b94c7a1274cb1a6aa227))
+* **gitlab-ci:** add `rubocop` linter (with `allow_failure`) [skip ci] ([e0274da](https://github.com/saltstack-formulas/nfs-formula/commit/e0274daa9acc2b069ceb9f3a77c2a630ed4cfa34))
+* **gitlab-ci:** use GitLab CI as Travis CI replacement ([4405b21](https://github.com/saltstack-formulas/nfs-formula/commit/4405b2151768067098c1431007416db65daf36f7))
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] ([8ef3472](https://github.com/saltstack-formulas/nfs-formula/commit/8ef34725eb0cffae615d47346238c624ee104880))
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] ([ef34ebb](https://github.com/saltstack-formulas/nfs-formula/commit/ef34ebba22b3f5255dec3c1faeb3e877982b87b6))
+* **pre-commit:** add to formula [skip ci] ([b4b0896](https://github.com/saltstack-formulas/nfs-formula/commit/b4b0896979895c82be592ae3f0232647d8580521))
+* **pre-commit:** enable/disable `rstcheck` as relevant [skip ci] ([def21c3](https://github.com/saltstack-formulas/nfs-formula/commit/def21c3ba004e806e7ac4aa608ab05efdeae06fe))
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([6bea9ea](https://github.com/saltstack-formulas/nfs-formula/commit/6bea9eaedde9b1b29f56f15ec080649a405691a1))
+* **pre-commit:** update hook for `rubocop` [skip ci] ([c298c9a](https://github.com/saltstack-formulas/nfs-formula/commit/c298c9a7cecfb15213441105d9f83cd47e7cb621))
+
+
+### Features
+
+* **oscodenamemap:** add support for openSUSE Tumbleweed ([5c30f49](https://github.com/saltstack-formulas/nfs-formula/commit/5c30f49cef7c20a76201505550ad9976822fa61b))
+* **osfamilymap:** add support for Gentoo ([aae6ce6](https://github.com/saltstack-formulas/nfs-formula/commit/aae6ce6414fc077c65b96c8f55e519863e8a5ed7))
+* **service:** allow disabling of nfs services ([2bfffc0](https://github.com/saltstack-formulas/nfs-formula/commit/2bfffc06a919546ae5775010ba4e33a5e200938b))
+
+
+### Tests
+
+* standardise use of `share` suite & `_mapdata` state [skip ci] ([b3d113a](https://github.com/saltstack-formulas/nfs-formula/commit/b3d113a49eef5b459aa83a12881a888f83a0dc2c))
+
 ## [0.11.1](https://github.com/saltstack-formulas/nfs-formula/compare/v0.11.0...v0.11.1) (2020-07-06)
 
 
