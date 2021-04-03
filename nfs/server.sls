@@ -1,9 +1,15 @@
 {% from "nfs/map.jinja" import nfs with context %}
 
+include:
+  - nfs.service
+
+
 {% if nfs.pkgs_server %}
 nfs-server-deps:
     pkg.installed:
         - pkgs: {{ nfs.pkgs_server|json }}
+        - require_in:
+          - service: nfs-service
 {% endif %}
 
 nfs-exports-configure:
@@ -13,15 +19,6 @@ nfs-exports-configure:
     - template: jinja
     - watch_in:
       - service: nfs-service
-
-nfs-service:
-  service.running:
-{% if nfs.service_name is string %}
-    - name: {{ nfs.service_name }}
-{% elif nfs.service_name is iterable %}
-    - names: {{ nfs.service_name }}
-{% endif %}
-    - enable: True
 
 {% if grains.get('os') == 'FreeBSD' %}
   {% set mountd_flags = salt['pillar.get'](
