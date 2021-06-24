@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.12.1](https://github.com/saltstack-formulas/nfs-formula/compare/v0.12.0...v0.12.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* **osfamilymap:** fix no `grains.init` on *BSD ([53b5b39](https://github.com/saltstack-formulas/nfs-formula/commit/53b5b39f250e82c04ff02e6e9a6b0d203349cb54)), closes [#38](https://github.com/saltstack-formulas/nfs-formula/issues/38)
+
+
+### Continuous Integration
+
+* enable Vagrant-based testing using GitHub Actions ([8b7a927](https://github.com/saltstack-formulas/nfs-formula/commit/8b7a927a0188b71242280d49ee65c622108a72d9))
+* **kitchen+gitlab:** remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci] ([f912cb6](https://github.com/saltstack-formulas/nfs-formula/commit/f912cb6272c6ab29951e8227fa2bcf5c19cf431b))
+* add `arch-master` to matrix and update `.travis.yml` [skip ci] ([dc8ee52](https://github.com/saltstack-formulas/nfs-formula/commit/dc8ee52e89e4fcbb2cc01d458b64290ed05b72b6))
+* **kitchen+gitlab:** adjust matrix to add `3003` [skip ci] ([20db001](https://github.com/saltstack-formulas/nfs-formula/commit/20db00170866ee1dfb3cce7240032eaeaba55bc0))
+
 # [0.12.0](https://github.com/saltstack-formulas/nfs-formula/compare/v0.11.1...v0.12.0) (2021-04-03)
 
 
