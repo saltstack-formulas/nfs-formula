@@ -3,6 +3,18 @@
 # Your changes will be overwritten.
 ########################################################################
 #
-{% for dir, opts in salt['pillar.get']('nfs:server:exports', {}).items() -%}
+{%- for dir, opts in salt['pillar.get']('nfs:server:exports', {}).items() %}
+{%- if opts is string %}
 {{ dir }} {{ opts }}
-{% endfor -%}
+{%- elif opts is mapping %}
+{{ dir }}
+{%- for host, options in opts.items() -%}
+{{ ' ' ~ host }}(
+{%- if options is iterable and options is not string -%}
+{{ ','.join(options) }}
+{%- else -%}
+{{ options }}
+{%- endif -%})
+{%- endfor -%}
+{%- endif %}
+{%- endfor %}

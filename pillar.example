@@ -13,6 +13,13 @@ nfs:
       /srv/homes: >-
         hostname1(rw,sync,no_subtree_check)
         hostname2(ro,sync,no_subtree_check)
+      /srv/cats:
+        hostname1:
+          - async
+          - nohide
+        hostname2: rw
+      /srv/dogs:
+        hostname1: nohide
     # FreeBSD specific:
     mountd_flags: -l -S
 
