@@ -55,7 +55,8 @@ Available states
 ``nfs.server``
 ^^^^^^^^^^^^^^
 
-Install nfs server components
+- Install NFS server components
+- If ``nfs:enabled`` is set to ``true`` (the default), enable the NFS service - if set to ``false``, ensure it is stopped
 
 ``nfs.client``
 ^^^^^^^^^^^^^^
