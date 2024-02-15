@@ -29,7 +29,7 @@ RedHat:
 Suse:
   pkgs_server: ['nfs-kernel-server']
   pkgs_client: ['nfs-client']
-  service_name: 'nfsserver'
+  service_name: 'nfs-server'
 
 Gentoo:
   pkgs_server: ['net-fs/nfs-utils']
