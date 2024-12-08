@@ -6,7 +6,7 @@ include:
 {% for m in salt['pillar.get']('nfs:mount', {}).items() %}
 {{ m[1].mountpoint }}:
   mount.mounted:
-    - device: {{ m[1].location }}
+    - device: '{{ m[1].location }}'
     - fstype: nfs
 {# Not every platform needs options #}
 {% if 'opts' in m[1] or nfs.mount_opts %}
